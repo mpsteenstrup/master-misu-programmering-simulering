@@ -1,0 +1,185 @@
+,Computational Literacy,Data-behandling.,Modellering og simulering.,Computationel problemløsning. ,System tænkning.
+,,,"Her sammenligner vi
+forsøget med en simulering, hvor
+differentialligningen 𝑣′
+= −𝑔 + 𝑘 · 𝑣2 kodes i
+Python","En væsentlig styrke ved simulering er, at den gør det muligt at undersøge fysiske systemer,
+hvor flere variable ændrer sig samtidig. En væsentlig svaghed ved simuleringer er, at de er stærkt afhængige af de antagelser, der
+ligger til grund for modellen. I den originale simulering af Baumgartners hop antages det f.eks.
+at hans kropsform og areal er konstante, selvom han i virkeligheden ændrer stilling under
+faldet. Derudover indebærer numeriske metoder også afrundingsfejl og afhænger af størrelsen
+af tidssteppet 𝑑𝑡. Hvis tidssteppet er for stort, kan simuleringen give upræcise resultater, mens
+et meget lille tidsstep kræver stor regnekraft. Simuleringen giver derfor kun et tilnærmet
+billede af virkeligheden, ikke en eksakt løsning. Hvis man gerne vil mindske disse fejl, kan man
+bruge en mere præcis metode som f.eks. Runge-Kutta.",
+,,,"Her er det hele sat ind i et loop, som i det store hele tegner en (tid [s], hastighed [m/s]) graf. At opsætte en simulering af noget virkeligt, her Baumgartners hop, skaber en slags simpel
+virkelighed. Variabelkontrol er lettere, man definerer selv de variabler man vil have med. Man
+kan selv bestemme balancen mellem simplicitet og kompleksitet, og det kan derfor være
+lettere at forklare med en simulering en noget virkeligt.","At lave en simulering er tit billigere end
+et ægte forsøg, Baumgartners hop har været dyrt, vores simulering af det har været stort set
+gratis. På den anden side er en simulering altid lidt oversimplificeret, alle variabler er ikke med
+sammenlignet med verden, så derfor er simuleringen ikke helt i overensstemmelse med
+virkeligheden.  Man kan se det lidt som bindeleddet mellem virkeligheden og
+matematikken",
+,,,"Vi kan simulere hans
+fald med vores model Og sammenligne med Red Bulls data fra faldet.","Det betyder i mellemtiden ikke, at der ikke længere er brug for fysiske
+love og sammenhænge til at forstå verdenen omkring os. Tværtimod er det nøglen til succes
+for en simulering at den bygger på meget gennemtestede fysiske love.  Simulationer i fysik tillader os også at sige noget om processer, som vi ikke
+nødvendigvis kan afprøve, udelukkende på baggrund af hvordan andre processer udspiller
+sig. Derfor er simulationer et utroligt brugbart værktøj. De har dog begrænsninger, da de
+udelukkende kan bruges til at opbygge hypoteser og altså aldrig sige noget om verdenen.
+Derfor vil de heller aldrig ku",
+,,"På billedet nedenfor kan man se min data. Den blå graf er fra mit forsøg med
+en ballon, og den lyserøde graf er en simulering af ballonens fald uden luftmodstand. En anden forskel er, at det i forsøg er svært at lave variabel kontrol, fordi det er svært at isolere
+forsøget fuldstændigt. Det oplevede jeg med mit ballonforsøg, her var statisk elektricitet en
+uforudset fejlkilde. Modsat er det med simulationer. Når man først har lavet en plausibel simulation,
+kan man ændre variabler i den og på den måde let undersøge mange hypoteser med variabelkontrol.
+.","Man kan bruge Eulers metode til at lave en tilnærmet simulation af virkeligheden. Det er især
+brugbart, når man skal undersøge noget, der er besværligt at eksperimentere med. Jeg prøver derfor at lave en ny simulation, hvor jeg tager højde for
+rotationen. Det kan men se i Python koden her:","For at teste præcisionen af min simulation antager jeg, at Maples numeriske løsning er den korrekte
+løsning. Maple har meget regnekraft og kan hurtigt teste mange forskellige mulige løsninger hurtigt.
+Derudover benytter Maple en mere kompliceret og mere præcis metode end Eulers metode. Et bud
+på en mere kompliceret metode er Runge Kutta i en høj orden.   Jeg kan her se, at Maple når frem til den samme hastighed som i min simulation. Jeg kan derfor
+konkludere, at min simulation er præcis.","Hvis man på
+den ene side kun arbejder i simulationer, vil der aldrig være noget, der går imod ens resultater.
+Simulationer bygger imidlertid på antagelser, som kunne være falske. Derfor er det vigtigt også at
+lave forsøg, selvom det ofte er både besværligt og tidskrævende. "
+,,,"Simuleringer har været et ufatteligt effektivt værktøj til at udregne matematik og fysik i mit
+tilfælde. Simuleringer giver mulighed for at få en god forståelse for en model af virkeligheden,
+det er muligt at arbejde med ufatteligt meget data på en gang og teste mange gange data uden at
+skulle lave fysiske forsøg. Det gør at man kan arbejde med virkeligheder, der er umulige at
+genskabe på jorden som f.eks. sorte huller, ekstrem varme og andre ekstreme tilfælde.",,
+,,.,"De første to linjer af koden sørger for at formlen gentager som i Eulers metode. Linjer 3 og 4
+svarer til: 𝐹 = 𝑚 · −𝑔 + · 𝐶 · 𝜌 · 𝑒.
+· · 𝐴 · 𝑣 . Koden ”mag(bold.v)*bold.v”
+skaber vektoren, der bestemmer hastighedens størrelse og retning. I næste linje bliver
+differentialligningen for accelerationen kaldt for a. Så bold.v = bold.v + a*dt svarer til vores
+formel for hastigheden: 𝒗𝒏 𝟏 = 𝒗𝒏 + (−𝒈 + 𝒌 · 𝒆 𝟎.𝟎𝟎𝟎𝟏𝟏𝟔𝟔·𝒔 · 𝒗𝐧
+𝟐 ) · 𝚫𝐭
+bold.pos = bold.pos + bold.v*dt svarer til vores formel for sted: 𝑠 = 𝑠 + 𝑣 · Δt.   En af de mest væsentlige styrker ved simulering er hvor praktisk det er. Simuleringer kan
+komme uden om problemer der ville opstå, hvis man prøvede at udføre det som et virkeligt
+forsøg. Nogen forsøg kræver mange ressourcer og omkostninger, som simulationer kan
+komme udenom. Der er nogen forsøg der er alt for komplekse til at udføre i virkeligheden.
+Simulationer er generelt mere effektive. Udover det kan simuleringer gentages med de
+samme fysiske betingelser, hvor virkelige forsøg ikke ville give de fuldkommen samme
+resultater hver gang. Som vi så i resultater på vores forsøg og simulation, kan simulationer
+nemt udelukke uønskede variabler, som vi ikke undersøger. Derudover har man også
+muligheden for nemt at ændre på de fysiske størrelser som man vil undersøge. Simulationer
+er generelt end mere effektiv måde at koble teori til praksis og gør det muligt at arbejde med
+matematiske teorier for at forklare problemstillinger inden for fysik.","Simuleringer giver også mulighed for at sammenligne teori med virkelige måledata. I dette
+tilfælde kan de simulerede resultater sammensættes med data fra det faktiske udspring, hvilket
+styrker forståelsen af modellens troværdighed. Derudover kan man nemt ændre parametre
+som masse eller tværsnitsareal og undersøge, hvordan disse påvirker resultatet, hvilket ville
+være vanskeligt eller umuligt i virkeligheden.",
+,,," En styrke ved simuleringen er at den bygger direkte på den
+matematiske model og derfor giver et idealiseret billede af bevægelsen uden måleusikkerheder.","Dog viser afvigelser mellem målingerne og simulering også, at virkelige bevægelser
+altid er mere komplekse end de matematiske modeller.",
+,,,"Én af styrkerne, som simulering har i forhold til matematik og fysik, er, at den kan regne med
+komplekse modeller, bl.a. fordi den nemt kan regne med numeriske metoder, som kan lad os slippe
+fra den regne tunge arbejde. Det er også derfor, vi brugte simulering som et redskab for at validere
+vores model","Først og fremmest har jeg ændret på koden, så der er flere tværsnitsareal og formfaktor. Det skyldes,
+at han omkring 55 sekunder i faldet begynder at rotere – derfor gav vi et bud på, hans gennemsnitlige
+formfaktor og tværsnitsareal under rotationen (A2 og c2)
+Derudover har vi også tilføjet en løkke, som skal implementere den nye formfaktor og tværsnitsareal:
+På den anden side, har simuleringen også nogle svagheder. Én af svaghederne er, at den aldrig kan
+give den sande værdi eller løsning. Det skyldes, at i modelleringens fasen bruger man
+approksimation,",
+,,,"Dog findes der mange styrker ved at simulere problemet, som for eksempel at få en generel
+idé om, hvilken retning forsøget kommer til at tage uden nødvendigvis at skulle udføre det
+direkte. En anden stor fordel ved simuleringer er, at de altid er gentagelige, så længe man
+noterer sine ændringer i koden. ","Vi bliver naturligvis nødt til at lave nogle antagelser baseret på vores erfaringer med den
+virkelige verden, og dette er endnu en svaghed ved at simulere noget, fordi man kan ikke
+være sikker på, at man har gjort sig nok erfaringer med verden til, at ens simulation kan
+producere resultater, som er præcise nok til, at de kan bruges til at sige noget om den
+virkelige verden.
+Hvis vi derimod havde skabt en simulering, som kunne bryde faldet op stykvist,
+kunne der formentlig være opnået et mere præcist resultat på baggrund af de bedre antagelser
+om faldet. Det kan gøres ved at ændre på de følgende linjer af kode:
+",
+,,,"Ovenstående figur viser resultaterne fra det fysiske forsøg sat op mod dataerne fra
+simulationen. Det ses, at simuleringen følger forsøgsdata relativt godt, hvilket indikerer, at
+den valgte model for luftmodstand giver en rimelig beskrivelse af muﬃn formens bevægelse.","Simuleringer giver mulighed for at kombinere matematiske modeller med fysiske antagelser
+på en overskuelig måde. De fungerer som et eﬀektivt redskab til at undersøge bevægelse i et
+tyngdefelt, især når flere kræfter virker samtidigt. En af de større styrker ved simuleringer er,
+at de kan håndtere komplekse sammenhænge, som kan være vanskelige at løse. ",
+,,,"Simulering er et yderst nyttigt redskab at have med når fysikken undersøges vha. af matematik, da
+den lader os opstille og tydeliggøre modeller. Simulering er en kunstig efterligning af virkeligheden,
+hvori der gøres brug af matematikken som middel til at kvantificere noget som ellers kan være
+svært at følge eller få resultater ud fra.","Når
+jeg laver en simulering, ud fra en opstillet matematisk model, vil det nødvendigvis gælde, at
+simuleringen kun er så præcis som den model jeg har opstillet. Jeg kan dog ikke se på modellen selv
+om den er forkert eller rigtigt, så at sige om den beskriver virkeligheden eller ej, da modellen jo er
+matematisk, og opfører sig sådan som jeg har fortalt den at den skal gøre. validiteten af en simulering, da det i sidste ende er mennesket
+bag, der skal vurdere om inputtet i modellen er godt nok. Det er selvfølgelig derfor at jeg
+sammenligner med forsøgsdata, for at opnå en forståelse for om simuleringen overhovedet viser
+virkeligheden.",
+,,,"En styrke ved simuleringer inden for fysik er at de gør det muligt at optimere forsøg
+ved først at afprøve dem i en simulering og dermed spare ressourcer på at udføre forsøget flere
+gange. Men det er dog vigtigt at have i mente at simuleringer jo er matematiske udregninger baseret
+på forsøg og at simuleringer egentlig er et bud på at efterligne virkeligheden og at forsøget udført i
+virkeligheden, egentlig er facit for hvordan simuleringen optimalt skal se ud.","svaghederne ved simuleringer ift. matematik nok også det at du ikke kan bruge dem til at
+simulere matematikken da matematikken jo i forvejen er ”brændstoffet” i simuleringen, så der er
+ikke så meget at simulere.",
+,,,"Her er der en hastighed, tid graf med simuleret hastighed ved hjælp af Python (lilla) og
+observeret hastighed(grøn). Den viser at simuleringen passer rimelig godt. Den første og vigtigste er afvigelsen af den
+numeriske metode fra virkeligheden. Den anden, og grunden til at de observerede punkter
+(grøn) ligger sporadisk ved terminalhastigheden, er fordi muffin formene begyndte at rotere.
+Formene blev altså wobbly og det påvirker både formfaktoren og tværsnitsarealet, hvilket
+simuleringen ikke tager højde for.","Vi har fremstillet og testet en matematisk model for bevægelse
+i tyngdefelt og er kommet frem til at simulering er et godt værktøj for præcision i forsøg, da
+der er intet der kan påvirke forsøget udover de egenskaber man selv inkorporerer i koden,
+også selvom det ikke altid stemmer med virkelighedens verden.",
+,,,,"Simuleringer er der også både styrker og svagheder ved. Simuleringen er et værktøj der gør det
+utroligt overskueligt at forstå en bevægelse for et legeme eller figur, det gør det også hurtigere at
+finde frem til nogle generelle tendenser, da man blot skal indtaste de matematiske og fysiske
+formler, for at få den til at give et svar. Dog er der også svagheder ved simulering i matematik og
+fysik, for det første er den begrænset af de matematiske formler det bliver givet, det vil sige at den
+vil ofte vil give forenklede billeder af virkeligheden og kan ikke præcist beskrive verden ud fra få
+fysiske formler. Simulering kan heller ikke give en årssagsforklaring, så det kræver at man har nogle antagelser på
+forhånd om verdenens tendenser og fysiske og matematiske midler der kan beskrive dem, for at
+kunne bruge simulering med succes.",
+,,,,"Dermed er simuleringen smart at bruge til at finde en passende
+model i forhold til en komplicerede virkelighed da den kommer med en mulig sammenhæng hvis
+bare man taster de forskellige faktorer ind. Den viser også specifikke grafer og modeller der viser en
+udvikling eller ændring på en visuel måde der er nemmere at forstå. ","n. Dog forklarer simuleringen ikke en ordentlig teoretisk forklaring på
+HVORFOR modellen ser ud som den gør og hvad de forskellige fysiske parametre gør ved resultatet.
+Den viser direkte en passende løsning uden en teoretisk forklaring og giver os svaret uden beviser."
+,,,"Simuleringer er et vigtigt redskab i både matematik og fysik, fordi det gør det muligt at
+undersøge bevægelser med luftmodstand, som er vanskelige at løse eksakt ved hjælp af
+matematiske metoder. Dette gør det muligt at
+inddrage realistiske kræfter som luftmodstand proportional med hastigheden i anden
+og en luftdensitet, der varierer med højden. Derfor komplimenterer matematik og fysik
+hinanden så godt","I videoen af
+Baumgartens hop kan vi at efter cirka 60
+sekunder begynder han at rotere, det har
+selvfølgelig betydning for formfaktoren og
+tværsnitarealet, da de bliver ændret i bevægelsen.19 For at løse dette problem har jeg
+sat Python koden til at formfaktoren ændrer til 0.9 fra 0.75, og tværsnitarealet fra 0.40 til
+0.7. Simuleringen bygger på flere forenklinger af virkeligheden.",
+,,,,"På den anden side gør simuleringer fysik meget mere håndterbart. Med simuleringer,
+behøver vi ikke at hoppe ud af en kæmpe heliumballon fra 39km højde for at undersøg
+frit fald gennem atmosfæren. Det er en simulering af virkeligheden, og der kan derfor være tilfælde, hvor man ikke
+inkorporerer alle de relevante variabler, der er på spil i den virkelige verden. ",
+,,,"Ved hjælp af disse startparametre blev der lavet en simulering i Trinket som kan ses
+nede i bilag 2, de beregnede værdier fra simuleringen blev derefter sammenlignet med
+de eksperimentelle data fra muffinsforsøget i Logger Pro.","Simuleringer er et effektivt værktøj til at undersøge fysiske fænomener så som frit fald,
+da de gør det muligt at få en hurtig og nem visualisering af bevægelsen og illustrere
+hvordan de forskellige faktorer påvirker det endelige resultat. Ved hjælp af simuleringer
+kan man nemt ændre størrelser som f.eks. masse, areal eller formfaktor, og kan med det
+samme se effekten. Dette gør det lettere at forstå sammenhængen mellem de fysiske
+størrelser og bevægelsen, hvilket ellers ville kræve mange fysiske forsøg. Derudover gør
+simuleringer det nemmere at se og forstå bevægelsen som ellers forklares i
+komplicerede matematiske formler. Desuden har simuleringer den styrke, at de kan bruges til at undersøge situationer, som
+er svære at undersøge i virkeligheden. Dog har simuleringer også nogle svagheder, da resultaterne den kommer afhænger
+fuldstændigt af ens eget input og parametrene man giver, så en lille fejl i faktorer så som
+areal, masse eller formfaktor kan hurtigt give forkerte resultater. ",
+,,,"Denne afvigelse viser en af de svagheder simulering har, nemlig at små fejl kan hobe sig op
+over tid når vi bruger numeriske metoder som Eulers til at basere vores simulering på. Selv
+de mindste fejl i hvert tidsskridt akkumuleres, hvilket fører til større afvigelser længere henne
+i beregningerne. Derudover er simulering kun baseret på den model du putter ind i den. Disse
+simplificeringer kan være med til at skabe yderligere forskelle mellem simulation og
+virkelighed. På den anden side er simulering sindssygt brugbart når man skal håndtere komplekse
+modeller. ","Med simulering kan man også hurtigt visualisere, og hurtigt
+variere i ens model hvis der er noget som ikke helt passer. Simuleringen kan ikke selv vurdere om den er en god beskrivelse af
+virkeligheden, den er lidt som en forvokset lommeregner, og laver bare de beregninger du
+putter ind i den.",
